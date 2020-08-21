@@ -7,13 +7,14 @@ import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
-import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
@@ -29,9 +30,8 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 public class Factorized implements ModInitializer {
 
 	// ITEM GROUPS
-	public static final ItemGroup ITEM_GROUP =
-			FabricItemGroupBuilder.create(new Identifier("factorized", "general")).icon(() -> new ItemStack(Factorized.COPPER_INGOT))
-					.build();
+	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(new Identifier("factorized", "general"))
+			.icon(() -> new ItemStack(Factorized.DIAMOND_GEAR)).build();
 
 	// ORES
 	public static final Block COPPER_ORE   = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0F)
@@ -48,8 +48,36 @@ public class Factorized implements ModInitializer {
 	public static final Item STEEL_INGOT    = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
 	public static final Item BRONZE_INGOT   = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
 
+	// CRUSHED MATERIALS
+	public static final Item CRUSHED_IRON     = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item CRUSHED_GOLD     = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item CRUSHED_DIAMOND  = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item CRUSHED_COPPER   = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item CRUSHED_TIN      = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item CRUSHED_CHROMIUM = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item CRUSHED_BRONZE   = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item CRUSHED_STEEL    = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+
+	// GEARS
+	public static final Item IRON_GEAR    = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item GOLD_GEAR    = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item DIAMOND_GEAR = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item COPPER_GEAR  = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item TIN_GEAR     = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item BRONZE_GEAR  = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item STEEL_GEAR   = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+
+	// PLATES
+	public static final Item IRON_PLATE     = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item GOLD_PLATE     = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item COPPER_PLATE   = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item TIN_PLATE      = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item CHROMIUM_PLATE = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item BRONZE_PLATE   = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item STEEL_PLATE    = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+
 	// TOOLS
-	public static final Item WRENCH = new Item(new Item.Settings().group(Factorized.ITEM_GROUP));
+	public static final Item WRENCH = new Item(new Item.Settings().group(Factorized.ITEM_GROUP).maxCount(1));
 
 	@Override
 	public void onInitialize() {
@@ -71,8 +99,36 @@ public class Factorized implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("factorized", "copper_ingot"), COPPER_INGOT);
 		Registry.register(Registry.ITEM, new Identifier("factorized", "tin_ingot"), TIN_INGOT);
 		Registry.register(Registry.ITEM, new Identifier("factorized", "chromium_ingot"), CHROMIUM_INGOT);
-		Registry.register(Registry.ITEM, new Identifier("factorized", "steel_ingot"), STEEL_INGOT);
 		Registry.register(Registry.ITEM, new Identifier("factorized", "bronze_ingot"), BRONZE_INGOT);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "steel_ingot"), STEEL_INGOT);
+
+		// CRUSHED MATERIALS
+		Registry.register(Registry.ITEM, new Identifier("factorized", "crushed_iron"), CRUSHED_IRON);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "crushed_gold"), CRUSHED_GOLD);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "crushed_diamond"), CRUSHED_DIAMOND);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "crushed_copper"), CRUSHED_COPPER);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "crushed_tin"), CRUSHED_TIN);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "crushed_chromium"), CRUSHED_CHROMIUM);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "crushed_bronze"), CRUSHED_BRONZE);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "crushed_steel"), CRUSHED_STEEL);
+
+		// GEARS
+		Registry.register(Registry.ITEM, new Identifier("factorized", "iron_gear"), IRON_GEAR);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "gold_gear"), GOLD_GEAR);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "diamond_gear"), DIAMOND_GEAR);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "copper_gear"), COPPER_GEAR);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "tin_gear"), TIN_GEAR);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "bronze_gear"), BRONZE_GEAR);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "steel_gear"), STEEL_GEAR);
+
+		// PLATES
+		Registry.register(Registry.ITEM, new Identifier("factorized", "iron_plate"), IRON_PLATE);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "gold_plate"), GOLD_PLATE);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "copper_plate"), COPPER_PLATE);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "tin_plate"), TIN_PLATE);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "chromium_plate"), CHROMIUM_PLATE);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "bronze_plate"), BRONZE_PLATE);
+		Registry.register(Registry.ITEM, new Identifier("factorized", "steel_plate"), STEEL_PLATE);
 
 		// TOOLS
 		Registry.register(Registry.ITEM, new Identifier("factorized", "wrench"), WRENCH);

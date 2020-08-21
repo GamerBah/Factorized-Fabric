@@ -1,13 +1,38 @@
 {
-  "block.factorized..copper_ore": "Copper Ore",
+  "block.factorized.copper_ore": "Copper Ore",
   "block.factorized.tin_ore": "Tin Ore",
   "block.factorized.chromium_ore": "Chromium Ore",
 
   "item.factorized.copper_ingot": "Copper Ingot",
   "item.factorized.tin_ingot": "Tin Ingot",
   "item.factorized.chromium_ingot": "Chromium Ingot",
-  "item.factorized.steel_ingot": "Steel Ingot",
   "item.factorized.bronze_ingot": "Bronze Ingot",
+  "item.factorized.steel_ingot": "Steel Ingot",
+
+  "item.factorized.crushed_iron": "Crushed Iron",
+  "item.factorized.crushed_gold": "Crushed Gold",
+  "item.factorized.crushed_diamond": "Crushed Diamond",
+  "item.factorized.crushed_copper": "Crushed Copper",
+  "item.factorized.crushed_tin": "Crushed Tin",
+  "item.factorized.crushed_chromium": "Crushed Chromium",
+  "item.factorized.crushed_bronze": "Crushed Bronze",
+  "item.factorized.crushed_steel": "Crushed Steel",
+
+  "item.factorized.iron_gear": "Iron Gear",
+  "item.factorized.gold_gear": "Gold Gear",
+  "item.factorized.diamond_gear": "Diamond Gear",
+  "item.factorized.copper_gear": "Copper Gear",
+  "item.factorized.tin_gear": "Tin Gear",
+  "item.factorized.bronze_gear": "Bronze Gear",
+  "item.factorized.steel_gear": "Steel Gear",
+
+  "item.factorized.iron_plate": "Iron Plate",
+  "item.factorized.gold_plate": "Gold Plate",
+  "item.factorized.copper_plate": "Copper Plate",
+  "item.factorized.tin_plate": "Tin Plate",
+  "item.factorized.chromium_plate": "Chromium Plate",
+  "item.factorized.bronze_plate": "Bronze Plate",
+  "item.factorized.steel_plate": "Steel Plate",
 
   "item.factorized.wrench": "Wrench",
 

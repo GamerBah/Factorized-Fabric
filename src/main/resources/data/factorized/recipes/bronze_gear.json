@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "X X",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "factorized:bronze_ingot"
+    }
+  },
+  "result": {
+    "item": "factorized:bronze_gear",
+    "count": 1
+  }
+}
