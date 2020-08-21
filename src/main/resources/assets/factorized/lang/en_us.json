@@ -1,0 +1,15 @@
+{
+  "block.factorized..copper_ore": "Copper Ore",
+  "block.factorized.tin_ore": "Tin Ore",
+  "block.factorized.chromium_ore": "Chromium Ore",
+
+  "item.factorized.copper_ingot": "Copper Ingot",
+  "item.factorized.tin_ingot": "Tin Ingot",
+  "item.factorized.chromium_ingot": "Chromium Ingot",
+  "item.factorized.steel_ingot": "Steel Ingot",
+  "item.factorized.bronze_ingot": "Bronze Ingot",
+
+  "item.factorized.wrench": "Wrench",
+
+  "itemGroup.factorized.general": "Factorized: General"
+}

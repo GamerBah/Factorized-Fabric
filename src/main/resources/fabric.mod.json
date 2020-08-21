@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "factorized",
+  "version": "${version}",
+  "name": "Factorized",
+  "description": "Just another tech mod.",
+  "authors": [
+    "GamerBah",
+    "TheGamingRT"
+  ],
+  "contact": {
+    "website": "gamerbah.com"
+  },
+  "license": "MIT",
+  "icon": "assets/factorized/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.gamerbah.factorized.client.FactorizedClient"
+    ],
+    "main": [
+      "com.gamerbah.factorized.Factorized"
+    ]
+  },
+  "mixins": [
+    "factorized.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.9.1+build.205",
+    "fabric": "*",
+    "minecraft": "1.16.1"
+  }
+}

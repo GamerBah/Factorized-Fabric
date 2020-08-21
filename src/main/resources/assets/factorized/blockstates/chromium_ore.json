@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "factorized:block/chromium_ore" }
+  }
+}
